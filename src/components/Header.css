@@ -1,0 +1,22 @@
+.header {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    height: 20vh;
+    background-image: url('../assets/banner.jpg');
+    background-position: center;
+}
+
+.cart {
+color: var(--color-background-cart);
+font-size: 2rem;
+position: absolute;
+bottom:0;
+right: 0;
+margin: 20px;
+cursor: pointer;
+}
+
+.cart:hover {
+    color: var(--color-mediumGreen);
+}
