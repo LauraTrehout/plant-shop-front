@@ -6,6 +6,7 @@ const Filter = ({ count, sort, category, filterPlants, sortPlants }) => {
   <div className="filter-result">{count} plants</div>
   <div className='sort'>
        <select value={sort} onChange={sortPlants}>
+         <option value=''>Latest</option>
         <option value='Lowest'>Lowest</option>
         <option value='Highest'>Highest</option>
       </select>
