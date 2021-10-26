@@ -26,6 +26,11 @@ function App() {
 
   const sortPlants = (e) => {
     setSort(e.target.value);
+    setPlants(plants.slice().sort((a, b) => (
+      sort === 'Lowest' ? ((a.price < b.price) ? 1 : -1) :
+      sort === 'Highest' ? ((a.price > b.price) ? 1 : -1) :
+      ((a._id < b._id) ? 1 : -1)
+    )))
   };
 
   return (
