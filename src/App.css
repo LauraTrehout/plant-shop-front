@@ -11,6 +11,7 @@
   --color-darkGreen: #445C17;
 }
 
+
 h1 {
   color: var(--color-background-cart);
   text-align: center;
@@ -27,11 +28,12 @@ h2 {
 .App {
   font-family: 'Rosario', sans-serif;
   background-color: var(--color-background);
-  height: 100%;
+  min-height: 100%;
 }
 
 .main-container {
   display: flex;
+  height: 100%;
 }
 
 

@@ -1,7 +1,11 @@
 .cart-container {
     background-color: var(--color-background-cart);
-    width: 30vw;
-    border-left: solid 1px var(--color-darkGreen)
+    width: 25vw;
+    margin-top: 10px;
+    border: solid 1px var(--color-darkGreen);
+    border-radius: 5px;
+    height: 100vh;
+    
 }
 
 .cart-title {

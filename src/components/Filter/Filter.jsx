@@ -11,7 +11,7 @@ const Filter = ({ count, sort, category, filterPlants, sortPlants }) => {
       </select>
   </div>
   <div className='filter-category'>
-      <select value={category} onChange={(e) => filterPlants(e)}>
+      <select onChange={filterPlants}>
          <option value=''>All plants</option>
          <option value='Indoor'>Indoor</option>
          <option value='Outdoor'>Outdoor</option>

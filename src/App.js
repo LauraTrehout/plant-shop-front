@@ -19,7 +19,8 @@ function App() {
       setPlants(data.plants)
     } else {
       setCategory(e.target.value);
-      setPlants(plants.filter(plant => plant.category !== category))
+      console.log(category);
+      setPlants(data.plants.filter(plant => plant.category === e.target.value))
     }
   };
 
