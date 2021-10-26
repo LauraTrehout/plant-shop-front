@@ -21,9 +21,9 @@ function App() {
     cart.forEach(item => {
       if (item._id === plant._id) {
         item.count++;
-        setAlreadyInCart(true)
       }
-      })
+    })
+      setAlreadyInCart(true)
       if(!alreadyInCart) {
         cart.push({...plant, count: 1})
       }

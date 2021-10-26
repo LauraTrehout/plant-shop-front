@@ -46,4 +46,9 @@
     color: var(--color-mediumGreen);
     font-size: 2rem;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.checkout:hover {
+    transform: scale(1.2);
 }
