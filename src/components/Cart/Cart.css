@@ -1,0 +1,13 @@
+.cart-container {
+    background-color: var(--color-background-cart);
+    width: 30vw;
+    border-left: solid 1px var(--color-darkGreen)
+}
+
+.cart-title {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    border-bottom: solid 1px var(--color-darkGreen)
+}
