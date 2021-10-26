@@ -1,0 +1,16 @@
+.filter-container {
+    display: flex;
+    width: 60vw;
+    justify-content: space-around;
+    padding: 1.2rem;
+    border-bottom: solid 1px var(--color-darkGreen);
+    margin: auto;
+}
+
+.filter-container select, .filter-container option {
+    font-family: 'Rosario', sans-serif;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}

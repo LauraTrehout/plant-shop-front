@@ -1,0 +1,48 @@
+.plant-card  {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    min-width: 250px;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    height: 40vh;
+}
+
+.plant-image {
+ height: 100%;
+ border-radius: 15px;
+ cursor: pointer;
+ transition: all 0.5s ease-in-out;
+}
+
+.plant-image:hover {
+    box-shadow:  20px 20px 60px #aa9b9b,
+    -20px -20px 60px #e6d1d1;
+}
+
+.name-price {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.name-price p {
+    font-weight: bold;
+}
+
+.add-to-cart {
+    background-color: var(--color-mediumGreen);
+    color: var(--color-background-cart);
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    margin: auto;
+}
+
+.add-to-cart:hover {
+    background-color: var(--color-lightGreen);
+    color: var(--color-darkGreen);
+}

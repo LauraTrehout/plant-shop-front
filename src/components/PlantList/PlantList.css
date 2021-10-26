@@ -1,0 +1,8 @@
+.plant-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 70vw;
+    margin: auto;
+    min-height: 100%;
+}
