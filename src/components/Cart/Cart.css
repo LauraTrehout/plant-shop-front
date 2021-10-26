@@ -1,11 +1,13 @@
 .cart-container {
+    position: absolute;
+    right: 0;
     background-color: var(--color-background-cart);
     width: 25vw;
     margin-top: 10px;
     border: solid 1px var(--color-darkGreen);
     border-radius: 5px;
     height: 100vh;
-    
+    margin-right: 5vw;
 }
 
 .cart-title {
@@ -14,4 +16,18 @@
     text-align: center;
     padding: 20px;
     border-bottom: solid 1px var(--color-darkGreen)
+}
+
+.cart-container p {
+    text-align: center;
+    padding: 1.2rem;
+}
+
+.cart-items {
+    margin: auto;
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

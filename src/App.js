@@ -13,6 +13,22 @@ function App() {
   const [plants, setPlants] = useState(data.plants);
   const [category, setCategory] = useState();
   const [sort, setSort] = useState("");
+  const [cartItems, setCartItems] = useState([])
+  const [alreadyInCart, setAlreadyInCart] = useState(false)
+
+  const addToCart = (plant) => {
+    const cart = cartItems.slice()
+    cart.forEach(item => {
+      if (item._id === plant._id) {
+        item.count++;
+        setAlreadyInCart(true)
+      }
+      })
+      if(!alreadyInCart) {
+        cart.push({...plant, count: 1})
+      }
+      setCartItems(cart)
+  }
 
   const filterPlants = (e) => {
     if(e.target.value === '') {
@@ -25,12 +41,11 @@ function App() {
   };
 
   const sortPlants = (e) => {
-    setSort(e.target.value);
-    setPlants(plants.slice().sort((a, b) => (
+    setSort(e.target.value)
+    setPlants(plants.sort((a, b) => (
       sort === 'Lowest' ? ((a.price < b.price) ? 1 : -1) :
       sort === 'Highest' ? ((a.price > b.price) ? 1 : -1) :
-      ((a._id < b._id) ? 1 : -1)
-    )))
+      ((a._id > b._id) ? 1 : -1))))
   };
 
   return (
@@ -45,9 +60,9 @@ function App() {
             filterPlants={filterPlants}
             sortPlants={sortPlants}
           />
-          <PlantList plants={plants} className="plant-list" />
+          <PlantList plants={plants} className="plant-list" addToCart={addToCart} />
         </div>
-        <Cart className="cart" />
+        <Cart className="cart" cartItems={cartItems} />
       </div>
     </div>
   );
