@@ -1,3 +1,5 @@
+import { FaArrowAltCircleRight, FaCartArrowDown } from 'react-icons/fa'
+
 import CartItemCard from './../CartItemCard/CartItemCard';
 
 import './Cart.css'
@@ -14,7 +16,15 @@ const Cart = ({ cartItems, removeFromCart }) => {
                     <CartItemCard key={item._id} cartItem={item} removeFromCart={removeFromCart} />
                 ))}
             </div>
-        </div>
+            <div className='cart-total'>
+                <h2>Total : </h2>
+                <div>
+                    {cartItems.reduce((a,c) => a + c.price*c.count, 0)} €
+                </div>
+                <p>This way to checkout</p>
+                <FaArrowAltCircleRight className='checkout'/>
+                </div>
+                </div>
      );
 }
  

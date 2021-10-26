@@ -40,6 +40,11 @@ function App() {
     }
   };
 
+  const removeFromCart = (plant) => {
+    const cart = cartItems.slice()
+    setCartItems(cart.filter(item => item._id !== plant._id))
+  }
+
   const sortPlants = (e) => {
     setSort(e.target.value)
     setPlants(plants.sort((a, b) => (
@@ -62,7 +67,7 @@ function App() {
           />
           <PlantList plants={plants} className="plant-list" addToCart={addToCart} />
         </div>
-        <Cart className="cart" cartItems={cartItems} />
+        <Cart className="cart" cartItems={cartItems} removeFromCart={removeFromCart} />
       </div>
     </div>
   );
