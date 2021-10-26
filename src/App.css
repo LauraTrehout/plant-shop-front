@@ -25,6 +25,7 @@ h2 {
 }
 
 .App {
+  font-family: 'Rosario', sans-serif;
   background-color: var(--color-background);
   height: 100%;
 }

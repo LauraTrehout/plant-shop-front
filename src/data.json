@@ -1,45 +1,46 @@
-{"plants" : [
+{
+    "plants" : [
     {
-      "_id": "",
+      "_id": "1",
       "name" : "Monstera",
       "price":"25",
       "image": "images/monstera.jpg",
       "category": "Indoor"
     },
     {
-      "_id": "",
+      "_id": "2",
       "name" : "Spider Plant",
       "price":"12",
       "image": "images/spider_plant.jpg",
       "category": "Indoor"
     },
     {
-      "_id": "",
+      "_id": "3",
       "name" : "Fig tree",
       "price":"20",
       "image": "images/fig_tree.jpg",
-      "category": "Outoor"
+      "category": "Outdoor"
     },
     {
-      "_id": "",
+      "_id": "4",
       "name" : "Succulents",
       "price":"10",
       "image": "images/succulents.jpg",
       "category": "Indoor"
     },
     {
-      "_id": "",
+      "_id": "5",
       "name" : "Calathea",
       "price":"15",
       "image": "images/calathea.jpg",
       "category": "Indoor"
     },
     {
-      "_id": "",
+      "_id": "6",
       "name" : "Arum",
       "price":"20",
       "image": "images/arum.jpg",
       "category": "Indoor"
     }
-]
+    ]
 }

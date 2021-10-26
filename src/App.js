@@ -1,22 +1,47 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Header from './components/Header/Header';
-import PlantList from './components/PlantList/PlantList';
+import Cart from "./components/Cart/Cart";
+import Filter from "./components/Filter/Filter";
+import Header from "./components/Header/Header";
+import PlantList from "./components/PlantList/PlantList";
 
-import data from './data.json'
+import data from "./data.json";
 
-import './App.css';
-import Cart from './components/Cart/Cart';
+import "./App.css";
 
 function App() {
-const [plants, setPlants] = useState([data.plants])
+  const [plants, setPlants] = useState(data.plants);
+  const [category, setCategory] = useState();
+  const [sort, setSort] = useState("");
+
+  const filterPlants = (e) => {
+    if(e.target.value === '') {
+      setPlants(data.plants)
+    } else {
+      setCategory(e.target.value);
+      setPlants(plants.filter(plant => plant.category !== category))
+    }
+  };
+
+  const sortPlants = (e) => {
+    setSort(e.target.value);
+  };
 
   return (
     <div className="App">
       <Header />
-      <div className='main-container'>
-      <PlantList plants={plants} className='plant-list'/>
-      <Cart className='cart' />
+      <div className="main-container">
+        <div>
+          <Filter
+            count={plants.length}
+            category={category}
+            sort={sort}
+            filterPlants={filterPlants}
+            sortPlants={sortPlants}
+          />
+          <PlantList plants={plants} className="plant-list" />
+        </div>
+        <Cart className="cart" />
       </div>
     </div>
   );
