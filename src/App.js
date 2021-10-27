@@ -13,6 +13,23 @@ function App() {
   const [plants, setPlants] = useState(data.plants);
   const [category, setCategory] = useState();
   const [sort, setSort] = useState("");
+  const [cartItems, setCartItems] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
+
+  const addToCart = (plant) => {
+    const cart = cartItems.slice()
+    let alreadyInCart = false
+    cart.forEach(item => {
+      if (item._id === plant._id) {
+        item.count++;
+        alreadyInCart = true
+      }
+    })
+      if(!alreadyInCart) {
+        cart.push({...plant, count: 1})
+      }
+      setCartItems(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
+  }
 
   const filterPlants = (e) => {
     if(e.target.value === '') {
@@ -24,13 +41,18 @@ function App() {
     }
   };
 
+  const removeFromCart = (plant) => {
+    const cart = cartItems.slice()
+    setCartItems(cart.filter(item => item._id !== plant._id))
+    localStorage.setItem('cart', JSON.stringify(cart.filter(item => item._id !== plant._id)))
+  }
+
   const sortPlants = (e) => {
-    setSort(e.target.value);
-    setPlants(plants.slice().sort((a, b) => (
-      e.target.value === 'Lowest' ? ((a.price > b.price) ? 1 : -1) :
-      e.target.value === 'Highest' ? ((a.price < b.price) ? 1 : -1) :
-      ((a._id > b._id) ? 1 : -1)
-    )))
+    setSort(e.target.value)
+    setPlants(plants.sort((a, b) => (
+      sort === 'Lowest' ? ((a.price < b.price) ? 1 : -1) :
+      sort === 'Highest' ? ((a.price > b.price) ? 1 : -1) :
+      ((a._id > b._id) ? 1 : -1))))
   };
 
   return (
@@ -45,9 +67,9 @@ function App() {
             filterPlants={filterPlants}
             sortPlants={sortPlants}
           />
-          <PlantList plants={plants} className="plant-list" />
+          <PlantList plants={plants} className="plant-list" addToCart={addToCart} />
         </div>
-        <Cart className="cart" />
+        <Cart className="cart" cartItems={cartItems} removeFromCart={removeFromCart} />
       </div>
     </div>
   );

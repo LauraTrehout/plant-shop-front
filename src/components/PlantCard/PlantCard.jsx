@@ -1,6 +1,6 @@
 import './PlantCard.css'
 
-const PlantCard = ({ plant }) => {
+const PlantCard = ({ plant, addToCart }) => {
     return ( 
         <div className='plant-card'>
            <img src={plant.image} className='plant-image' alt='{plant.name}' />
@@ -8,7 +8,7 @@ const PlantCard = ({ plant }) => {
            <h2>{plant.name}</h2>
            <p>{plant.price} €</p>
            </div>
-           <button className='add-to-cart'>
+           <button className='add-to-cart' onClick={()=>addToCart(plant)}>
                Add to cart
            </button>
         

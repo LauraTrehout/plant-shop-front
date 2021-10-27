@@ -1,5 +1,7 @@
 .header {
-    position: relative;
+    position: sticky;
+    z-index: 20;
+    top:0;
     width: 95%;
     margin: auto;
     height: 20vh;

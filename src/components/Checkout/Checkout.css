@@ -1,0 +1,27 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding: 1.5rem;
+}
+
+.label-input {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.form-container label {
+    padding: 0.8rem;
+}
+
+.form-container input {
+    border-radius: 5px;
+    border: solid 1px lightgrey;
+    padding: 0.5rem;
+}
+
+.form-container input:valid {
+    border: solid green 1px;
+}
