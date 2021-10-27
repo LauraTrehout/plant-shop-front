@@ -13,7 +13,8 @@ function App() {
   const [plants, setPlants] = useState(data.plants);
   const [category, setCategory] = useState();
   const [sort, setSort] = useState("");
-  const [cartItems, setCartItems] = useState([])
+  // const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
   const [alreadyInCart, setAlreadyInCart] = useState(false)
 
   const addToCart = (plant) => {
@@ -22,12 +23,13 @@ function App() {
       if (item._id === plant._id) {
         item.count++;
       }
-    })
       setAlreadyInCart(true)
+    })
       if(!alreadyInCart) {
         cart.push({...plant, count: 1})
       }
       setCartItems(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
   }
 
   const filterPlants = (e) => {
@@ -43,6 +45,7 @@ function App() {
   const removeFromCart = (plant) => {
     const cart = cartItems.slice()
     setCartItems(cart.filter(item => item._id !== plant._id))
+    localStorage.setItem('cart', JSON.stringify(cart.filter(item => item._id !== plant._id)))
   }
 
   const sortPlants = (e) => {
