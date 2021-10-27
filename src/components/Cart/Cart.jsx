@@ -18,7 +18,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
             </div>
             {cartItems.length !== 0 && (
                 <div className='cart-total'>
-                <h2>Total : </h2>
+                <h2>Total: </h2>
                 <div>
                     {cartItems.reduce((a,c) => a + c.price*c.count, 0)} €
                 </div>

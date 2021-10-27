@@ -11,7 +11,7 @@
 }
 
 .cart-title {
-    width: 80%;
+    width: 90%;
     margin: auto;
     text-align: center;
     padding: 20px;
@@ -33,7 +33,7 @@
 }
 
 .cart-total {
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: center;
