@@ -1,12 +1,10 @@
 .cart-container {
-    position: absolute;
-    right: 0;
     background-color: var(--color-background-cart);
     width: 25vw;
     margin-top: 10px;
     border: solid 1px var(--color-darkGreen);
     border-radius: 5px;
-    height: 100vh;
+    height: 100%;
     margin-right: 5vw;
 }
 
