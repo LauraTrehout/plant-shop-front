@@ -28,7 +28,7 @@ const closeModal = () => {
           Add to cart
         </button>
         {plantModal && (
-          <ModalDetails closeModal={closeModal} plant={plant} />
+          <ModalDetails closeModal={closeModal} plant={plant} addToCart={addToCart} />
         )}
       </div>
   );

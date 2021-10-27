@@ -1,10 +1,15 @@
 import { Zoom } from "react-awesome-reveal";
 import Modal from "react-modal";
-import PlantList from "../PlantList/PlantList";
 
 import "./ModalDetails.css";
 
-const ModalDetails = ({ closeModal, plant }) => {
+const ModalDetails = ({ closeModal, plant, addToCart }) => {
+
+    const handleModalAddToCart = () => {
+        addToCart(plant)
+        closeModal()
+    }
+
   return (
     <Modal className="modal" isOpen={true}>
       <Zoom>
@@ -31,6 +36,8 @@ const ModalDetails = ({ closeModal, plant }) => {
               aperiam beatae nulla harum eaque perferendis obcaecati fuga? In,
               nisi. Mollitia reiciendis tempora excepturi!
             </p>
+            <p><strong>{plant.price} €</strong></p>
+            <button className='add-to-cart' onClick={() => handleModalAddToCart(plant)}>Add to Cart</button>
           </div>
         </div>
       </Zoom>
