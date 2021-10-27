@@ -13,17 +13,16 @@ function App() {
   const [plants, setPlants] = useState(data.plants);
   const [category, setCategory] = useState();
   const [sort, setSort] = useState("");
-  // const [cartItems, setCartItems] = useState([])
   const [cartItems, setCartItems] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
-  const [alreadyInCart, setAlreadyInCart] = useState(false)
 
   const addToCart = (plant) => {
     const cart = cartItems.slice()
+    let alreadyInCart = false
     cart.forEach(item => {
       if (item._id === plant._id) {
         item.count++;
+        alreadyInCart = true
       }
-      setAlreadyInCart(true)
     })
       if(!alreadyInCart) {
         cart.push({...plant, count: 1})
