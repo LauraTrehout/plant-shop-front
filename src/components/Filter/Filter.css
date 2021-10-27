@@ -1,9 +1,10 @@
 .filter-container {
     position: fixed;
-    left: 5%;
-    margin: auto;
+    z-index:15;
+    left: 6%;
     display: flex;
     width: 60vw;
+    margin: auto;
     justify-content: space-around;
     padding: 1.2rem;
     border-bottom: solid 1px var(--color-darkGreen);

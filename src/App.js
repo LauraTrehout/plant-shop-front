@@ -59,17 +59,17 @@ function App() {
     <div className="App">
       <Header />
       <div className="main-container">
-        <div>
           <Filter
             count={plants.length}
             category={category}
             sort={sort}
             filterPlants={filterPlants}
             sortPlants={sortPlants}
-          />
+            />
+            <div className='list-and-cart'>
           <PlantList plants={plants} className="plant-list" addToCart={addToCart} />
-        </div>
         <Cart className="cart" cartItems={cartItems} removeFromCart={removeFromCart} />
+        </div>
       </div>
     </div>
   );
