@@ -32,9 +32,9 @@
     border: none;
     cursor: pointer;
     padding: 10px;
-    margin: 10px;
     width: 50%;
     margin: auto;
+    margin-top: 1rem;
 }
 
 .add-to-cart:hover {

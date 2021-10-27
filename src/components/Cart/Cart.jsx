@@ -1,10 +1,15 @@
-import { FaArrowAltCircleRight, FaCartArrowDown } from 'react-icons/fa'
+import { useState } from 'react';
+import { FaArrowAltCircleRight } from 'react-icons/fa'
 
 import CartItemCard from './../CartItemCard/CartItemCard';
+import Checkout from './../Checkout/Checkout';
 
 import './Cart.css'
 
-const Cart = ({ cartItems, removeFromCart }) => {
+const Cart = ({ cartItems, removeFromCart, createOrder }) => {
+const [showCheckout, setShowCheckout] = useState(false)
+
+
     return ( 
         <div className='cart-container'>
             <h2 className='cart-title'>Shopping Cart</h2>
@@ -23,8 +28,11 @@ const Cart = ({ cartItems, removeFromCart }) => {
                     {cartItems.reduce((a,c) => a + c.price*c.count, 0)} €
                 </div>
                 <p>This way to checkout</p>
-                <FaArrowAltCircleRight className='checkout'/>
+                <FaArrowAltCircleRight className='checkout' onClick={() => setShowCheckout(true)}/>
                 </div>
+            )}
+            {showCheckout && (
+              <Checkout cartItems={cartItems} createOrder={createOrder} />
             )}
                 </div>
             
