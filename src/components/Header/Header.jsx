@@ -5,7 +5,7 @@ const Header = () => {
     return ( 
         <div className='header'>
         <h1>The Plant Shop</h1>
-        <FaCartArrowDown className='cart'/>
+        {/* <FaCartArrowDown className='cart'/> */}
         </div>
      );
 }

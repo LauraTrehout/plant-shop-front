@@ -1,19 +1,28 @@
-import { useState } from "react";
+import axios from "axios";
 
 import Cart from "./components/Cart/Cart";
 import Filter from "./components/Filter/Filter";
 import Header from "./components/Header/Header";
 import PlantList from "./components/PlantList/PlantList";
 
-import data from "./data.json";
+// import data from "./data.json";
 
 import "./App.css";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [plants, setPlants] = useState(data.plants);
+  const [plants, setPlants] = useState([]);
   const [category, setCategory] = useState();
   const [sort, setSort] = useState("");
   const [cartItems, setCartItems] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
+
+ useEffect(() => {
+   const getData = () => {
+     axios.get('http://localhost:4000/plants')
+     .then(res => setPlants(res.data))
+   }
+   getData()
+ }, [])
 
   const addToCart = (plant) => {
     const cart = cartItems.slice()
@@ -33,12 +42,11 @@ function App() {
 
   const filterPlants = (e) => {
     if(e.target.value === '') {
-      setPlants(data.plants)
-    } else {
+      setPlants(plants)
+    } 
       setCategory(e.target.value);
-      console.log(category);
-      setPlants(data.plants.filter(plant => plant.category === e.target.value))
-    }
+      setPlants(plants.filter(plant => plant.category === e.target.value))
+
   };
 
   const removeFromCart = (plant) => {
@@ -56,6 +64,7 @@ function App() {
   };
 
   return (
+    // <Provider store={store}>
     <div className="App">
       <Header />
       <div className="main-container">
@@ -72,6 +81,7 @@ function App() {
         </div>
       </div>
     </div>
+  // </Provider>
   );
 }
 

@@ -1,4 +1,4 @@
-import { FETCH_PLANTS } from './../types';
+import { FETCH_PLANTS } from '../types';
 
 export const plantsReducer = (state = {}, action) => {
     switch(action.type) {

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import Modal from 'react-modal'
+import ModalDetails from './../Modal/ModalDetails';
 
 import "./PlantCard.css";
-import ModalDetails from './../Modal/ModalDetails';
 
 const PlantCard = ({ plant, addToCart }) => {
 const [plantModal, setPlantModal] = useState()
+
 
 const openModal = (plant) => {
     setPlantModal(plant)
