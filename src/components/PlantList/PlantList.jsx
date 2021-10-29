@@ -4,7 +4,7 @@ import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 import './PlantList.css'
 
- const PlantList = ({ plants, addToCart }) => {
+ const PlantList = ({ plants, filter, addToCart }) => {
 
 
     return ( 

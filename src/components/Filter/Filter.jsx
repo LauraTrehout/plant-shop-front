@@ -1,6 +1,6 @@
 import './Filter.css'
 
-const Filter = ({ count, sort, filterPlants, sortPlants }) => {
+const Filter = ({ count, sort, category, filterPlants, sortPlants }) => {
   return (
       <div className='filter-container'>
   <div className="filter-result">{count} plants</div>
@@ -14,9 +14,9 @@ const Filter = ({ count, sort, filterPlants, sortPlants }) => {
   <div className='filter-category'>
       <select onChange={filterPlants}>
          <option value=''>All plants</option>
-         <option value='Indoor'>Indoor</option>
-         <option value='Outdoor'>Outdoor</option>
-         <option value='Aromatic'>Aromatic</option>
+         <option value='indoor'>Indoor</option>
+         <option value='outdoor'>Outdoor</option>
+         <option value='aromatic'>Aromatic</option>
       </select>
   </div>
   </div>
