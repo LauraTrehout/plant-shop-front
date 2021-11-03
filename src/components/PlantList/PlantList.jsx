@@ -1,4 +1,4 @@
-
+import { connect } from 'react-redux'
 import PlantCard from '../PlantCard/PlantCard';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
@@ -16,3 +16,9 @@ import './PlantList.css'
 }
  
 export default PlantList;
+
+// export const plantStore = connect(
+//     state => ({
+//         plants: state.plants
+//     })
+// )(Plantlist)
