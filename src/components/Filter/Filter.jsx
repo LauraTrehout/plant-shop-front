@@ -1,6 +1,6 @@
 import './Filter.css'
 
-const Filter = ({ count, sort, filterPlants, sortPlants }) => {
+const Filter = ({ count, sort, category, filterPlants, sortPlants }) => {
   return (
       <div className='filter-container'>
   <div className="filter-result">{count} plants</div>
