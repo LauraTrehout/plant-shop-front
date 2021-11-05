@@ -1,19 +1,33 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
 
 import Cart from "./components/Cart/Cart";
 import Filter from "./components/Filter/Filter";
 import Header from "./components/Header/Header";
 import PlantList from "./components/PlantList/PlantList";
-
-import data from "./data.json";
+import store from './store/index';
 
 import "./App.css";
 
 function App() {
-  const [plants, setPlants] = useState(data.plants);
+
+  const server = process.env.REACT_APP_SERVER
+
+  const [plants, setPlants] = useState([]);
   const [category, setCategory] = useState();
   const [sort, setSort] = useState("");
   const [cartItems, setCartItems] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
+
+ useEffect(() => {
+   const getData = () => {
+     axios.get(`${server}/plants`)
+     .then(res => {setPlants(res.data) 
+      // setFiltered(res.data)
+    })
+   }
+   getData()
+ }, [])
 
   const addToCart = (plant) => {
     const cart = cartItems.slice()
@@ -31,47 +45,60 @@ function App() {
       localStorage.setItem('cart', JSON.stringify(cart))
   }
 
-  const filterPlants = (e) => {
-    if(e.target.value === '') {
-      setPlants(data.plants)
-    } else {
-      setCategory(e.target.value);
-      console.log(category);
-      setPlants(data.plants.filter(plant => plant.category === e.target.value))
-    }
-  };
-
   const removeFromCart = (plant) => {
     const cart = cartItems.slice()
     setCartItems(cart.filter(item => item._id !== plant._id))
     localStorage.setItem('cart', JSON.stringify(cart.filter(item => item._id !== plant._id)))
   }
 
-  const sortPlants = (e) => {
-    setSort(e.target.value)
-    setPlants(plants.sort((a, b) => (
-      sort === 'Lowest' ? ((a.price < b.price) ? 1 : -1) :
-      sort === 'Highest' ? ((a.price > b.price) ? 1 : -1) :
-      ((a._id > b._id) ? 1 : -1))))
+  const filterPlants = (e) => {
+    setCategory(e.target.value)
+    if (category === '') {
+    setPlants(plants)
+    }
+      // axios.get(`${server}/plants/${category}`)
+      // .then(res => setPlants(res.data))
   };
 
+  useEffect (() => {
+    const getData = () => axios.get(`${server}/plants/${category}`)
+    .then(res => setPlants(res.data))
+    getData()
+  }, [category])
+
+  const sortPlants = (e) => {
+    setSort(e.target.value)
+  };
+
+  useEffect (() => { 
+      const res = [...plants]
+      res.sort((a, b) => (
+      sort === 'Lowest' ? ((a.price > b.price) ? 1 : -1) :
+      sort === 'Highest' ? ((a.price < b.price) ? 1 : -1) :
+      sort === '' ? ((a._id < b._id) ? 1 : -1) : null ))
+      setPlants(res)
+  }, [sort])
+
   return (
+    <Provider store={store}>
+          {console.log(category)}
     <div className="App">
       <Header />
       <div className="main-container">
-        <div>
           <Filter
             count={plants.length}
             category={category}
             sort={sort}
             filterPlants={filterPlants}
             sortPlants={sortPlants}
-          />
+            />
+            <div className='list-and-cart'>
           <PlantList plants={plants} className="plant-list" addToCart={addToCart} />
-        </div>
         <Cart className="cart" cartItems={cartItems} removeFromCart={removeFromCart} />
+        </div>
       </div>
     </div>
+   </Provider>
   );
 }
 

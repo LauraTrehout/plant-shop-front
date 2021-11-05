@@ -5,18 +5,18 @@ const Filter = ({ count, sort, category, filterPlants, sortPlants }) => {
       <div className='filter-container'>
   <div className="filter-result">{count} plants</div>
   <div className='sort'>
-       <select value={sort} onChange={sortPlants}>
+       <select onChange={sortPlants}>
          <option value=''>Latest</option>
         <option value='Lowest'>Lowest</option>
         <option value='Highest'>Highest</option>
       </select>
   </div>
   <div className='filter-category'>
-      <select value={category} onChange={filterPlants}>
+      <select onChange={filterPlants}>
          <option value=''>All plants</option>
-         <option value='Indoor'>Indoor</option>
-         <option value='Outdoor'>Outdoor</option>
-         <option value='Aromatic'>Aromatic</option>
+         <option value='indoor'>Indoor</option>
+         <option value='outdoor'>Outdoor</option>
+         <option value='aromatic'>Aromatic</option>
       </select>
   </div>
   </div>

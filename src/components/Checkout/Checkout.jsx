@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Fade } from 'react-awesome-reveal'
 
 import "./Checkout.css";
 
@@ -20,6 +21,7 @@ const createOrder = (e) => {
 }
 
   return (
+    <Fade>
       <form onSubmit={createOrder}>
         <div className="form-container">
           <div className='label-input'>
@@ -37,6 +39,7 @@ const createOrder = (e) => {
           <button className='add-to-cart' type='submit'>Order</button>
         </div>
       </form>
+      </Fade>
   );
 };
 
