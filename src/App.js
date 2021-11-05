@@ -1,12 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Provider } from "react-redux";
 
 import Cart from "./components/Cart/Cart";
 import Filter from "./components/Filter/Filter";
 import Header from "./components/Header/Header";
 import PlantList from "./components/PlantList/PlantList";
-import store from './store/index';
 
 import "./App.css";
 
@@ -80,8 +78,6 @@ function App() {
   }, [sort])
 
   return (
-    <Provider store={store}>
-          {console.log(category)}
     <div className="App">
       <Header />
       <div className="main-container">
@@ -98,7 +94,6 @@ function App() {
         </div>
       </div>
     </div>
-   </Provider>
   );
 }
 
