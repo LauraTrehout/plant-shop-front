@@ -1,11 +1,11 @@
 .cart-container {
     background-color: var(--color-background-cart);
-    width: 25vw;
-    margin-top: 10px;
+    width: 27vw;
+    margin-top: 5rem;
     border: solid 1px var(--color-darkGreen);
     border-radius: 5px;
-    height: 100%;
     margin-right: 5vw;
+    height: 100%;
 }
 
 .cart-title {
@@ -16,18 +16,24 @@
     border-bottom: solid 1px var(--color-darkGreen)
 }
 
+.cart-logo {
+    padding-right: 5px;
+    padding-top: 5px;
+    font-size: 1.5rem;
+}
+
 .cart-container p {
     text-align: center;
     padding: 1.2rem;
 }
 
 .cart-items {
+    width: 90%;
     margin: auto;
-    width: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .cart-total {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaArrowAltCircleRight } from 'react-icons/fa'
+import { FaArrowAltCircleRight, FaCartArrowDown } from 'react-icons/fa'
 
 import CartItemCard from './../CartItemCard/CartItemCard';
 import Checkout from './../Checkout/Checkout';
@@ -12,7 +12,7 @@ const [showCheckout, setShowCheckout] = useState(false)
 
     return ( 
         <div className='cart-container'>
-            <h2 className='cart-title'>Shopping Cart</h2>
+            <h2 className='cart-title'><FaCartArrowDown className='cart-logo' /> {' '}Shopping Cart</h2>
             {!cartItems.length ? <p>Cart is empty</p> : 
             cartItems.length === 1 ? <p> There is one item in your cart </p> :
             <p>There are {cartItems.length} items in your cart.</p>}
